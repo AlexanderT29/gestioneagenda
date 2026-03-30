@@ -16,4 +16,6 @@ public interface AgendaService {
     Agenda inserisciNuovo(Agenda agendaInstance);
 
     void rimuovi(Long idToRemove);
+
+    public List<Agenda> elencaImpegniPerUtente(String username);
 }

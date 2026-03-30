@@ -22,4 +22,7 @@ public interface UtenteRepository extends JpaRepository<Utente, Long> {
     //caricamento eager, ovviamente si può fare anche con jpql
     @EntityGraph(attributePaths = { "ruoli" })
     Utente findByUsernameAndPasswordAndStato(String username,String password, StatoUtente stato);
+
+    @Query("from Utente u left join fetch u.impegni where u.id = ?1")
+    Optional<Utente> findUtenteConAgenda(Long id);
 }
